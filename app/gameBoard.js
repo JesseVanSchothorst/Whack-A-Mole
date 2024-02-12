@@ -34,28 +34,28 @@ const WhackAMoleGame = () => {
     const difficultySettings = {
         // Easy
         0: {
-            // only 4 moles, a mole appears every second (so multiple on screen more points to get) and stay for 2 seconds
+            // only 4 moles, a mole appears every second (so multiple on screen more points to get) and stay for 2 seconds this is intentional
             MOLE_HOLES: 4,
-            MOLE_APPEAR_INTERVAL: 1000,
+            MOLE_APPEAR_INTERVAL: 1500,
             MOLE_DURATION: 2000
         },
         // Also Easy
         1: {
             MOLE_HOLES: 4,
-            MOLE_APPEAR_INTERVAL: 1000,
+            MOLE_APPEAR_INTERVAL: 1500,
             MOLE_DURATION: 2000
         },
         // Medium
         2: {
             MOLE_HOLES: 8,
-            MOLE_APPEAR_INTERVAL: 1200,
+            MOLE_APPEAR_INTERVAL: 1400,
             MOLE_DURATION: 1000
         },
         // Impossible
         3: {
             MOLE_HOLES: 12,
             MOLE_APPEAR_INTERVAL: 800,
-            MOLE_DURATION: 800
+            MOLE_DURATION: 500
         }
     };
     // These values equal whatever difficultySettings[num] equal
@@ -214,10 +214,10 @@ const WhackAMoleGame = () => {
                         newMoles[randomIndex] = false;
                         return newMoles;
                     });
-                }, MOLE_APPEAR_INTERVAL);
+                }, MOLE_DURATION);
 
                 
-            }, MOLE_DURATION);
+            }, MOLE_APPEAR_INTERVAL);
 
             return () => {
                 clearInterval(moleIntervalId); // Clear interval);
